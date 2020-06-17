@@ -12,8 +12,8 @@ input[type="checkbox"] {
     visibility: hidden;
     display: none;
 }
-.check,                         /*Переключатель check меняет цвет и выезжает с противоположной стороны*/
-.different-check {              /*Переключатель different-check меняет цвет и перемещается в противоположную сторону*/ 
+/*Переключатель check меняет цвет и выезжает с противоположной стороны*/
+.check {                         
     position: relative;
 
     display: block;
@@ -27,13 +27,11 @@ input[type="checkbox"] {
 
     transition: ease-in 0.5s;
 }
-input[type="checkbox"]:checked ~ .check,
-input[type="checkbox"]:checked ~ .different-check {
+input[type="checkbox"]:checked ~ .check {
     background: #ffffff;
     box-shadow: 0 0 0 1200px #092c3e;
 }
-.check:before,
-.different-check:before {
+.check:before {
     content: "";
     position: absolute;
     top: 4px;
@@ -49,10 +47,6 @@ input[type="checkbox"]:checked ~ .different-check {
 }
 input[type="checkbox"]:checked ~ .check:before {
     transform: translateX(-50px);
-}
-input[type="checkbox"]:checked ~ .different-check:before {
-    background: #092c3e;
-    transform: translateX(40px);
 }
 .check:after {
     content: "";
@@ -71,4 +65,41 @@ input[type="checkbox"]:checked ~ .different-check:before {
 }
 input[type="checkbox"]:checked ~ .check:after  {
     transform: translateX(0px);
+}
+/*Переключатель different-check меняет цвет и перемещается в противоположную сторону*/
+.different-check {               
+    position: relative;
+
+    display: block;
+    width: 80px;
+    height: 40px;
+    
+    background: #092c3e;
+    border-radius: 40px;
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: ease-in 0.5s;
+}    
+input[type="checkbox"]:checked ~ .different-check {
+    background: #ffffff;
+    box-shadow: 0 0 0 1200px #092c3e;
+}
+.different-check:before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+
+    width: 32px;
+    height: 32px;
+
+    background: #ffffff;
+    border-radius: 50%;
+
+    transition: 0.5s;
+}
+input[type="checkbox"]:checked ~ .different-check:before {
+    background: #092c3e;
+    transform: translateX(40px);
 }
